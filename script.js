@@ -21,9 +21,9 @@ function todaysWeather () {
       .then(function (data) {
         // console.log(data);
         todaysWeatherEl.innerHTML = cityEl.value.toUpperCase() + " | " + moment().format("MMM Do, YYYY");
-        currentTempEl.innerHTML = "Temp: " + data.main.temp;
-        currentWindEl.innerHTML = "Wind: " + data.wind.speed;
-        currentHumEl.innerHTML = "Humidity: " + data.main.humidity;
+        currentTempEl.innerHTML = "Temp: " + data.main.temp + "°F";
+        currentWindEl.innerHTML = "Wind: " + data.wind.speed + "mph";
+        currentHumEl.innerHTML = "Humidity: " + data.main.humidity + "%";
     }
       )  
 }
@@ -39,23 +39,25 @@ function forecast() {
         return response.json();
       })
       .then(function (data2) {
-        console.log(data2);
-        // console.log(data2.list[6].main.temp);
+        // console.log(data2);
 
+        // iterate through the data 
         for (var i=6; i < data2.list.length; i += 8) {
           var newCard = document.createElement("div");
+          newCard.setAttribute("class", "card col-2");
           var newDate = document.createElement("h4");
           var newTemp = document.createElement("p");
           var newWind = document.createElement("p");
           var newHum = document.createElement("p");
-          newTemp.innerHTML = "Temp: " + data2.list[i].main.temp;
-          newWind.innerHTML = "Wind: " + data2.list[i].wind.speed;
-          newHum.innerHTML = "Humidity: " + data2.list[i].main.humidity;
+          newTemp.innerHTML = "Temp: " + data2.list[i].main.temp + "°F";
+          newWind.innerHTML = "Wind: " + data2.list[i].wind.speed + "mph";
+          newHum.innerHTML = "Humidity: " + data2.list[i].main.humidity + "%";
           newCard.appendChild(newTemp);
           newCard.appendChild(newWind);
           newCard.appendChild(newHum);
           futureEl.appendChild(newCard);
 
+          // creating the date headers
           if (i===6) {
             var newDate = document.createElement("h4");
             newDate.innerHTML = moment().add(1, 'day').format("MMM Do, YYYY"); 
@@ -78,34 +80,11 @@ function forecast() {
             newCard.insertBefore(newDate, newTemp);
           }
         }
-        // for (var j=1; j < 6; j++) {
-        //   var newDate = document.createElement("h4");
-        //   newDate.innerHTML = moment().add(j, 'day').format("MMM Do, YYYY"); 
-        //   newCard.insertBefore(newDate, newTemp);
-        // }
-        
-        // for (var i=6; i < data2.list.length; i += 8) {
-        //   var newCard = document.createElement("div");
-        //   var newDate = document.createElement("h4");
-        //   var newTemp = document.createElement("p");
-        //   var newWind = document.createElement("p");
-        //   var newHum = document.createElement("p");
-        //   newDate.innerHTML = moment().add(1, 'days'); 
-        //   newTemp.innerHTML = "Temp: " + data2.list[i].main.temp;
-        //   newWind.innerHTML = "Wind: " + data2.list[i].wind.speed;
-        //   newHum.innerHTML = "Humidity: " + data2.list[i].main.humidity;
-        //   newCard.appendChild(newDate);
-        //   newCard.appendChild(newTemp);
-        //   newCard.appendChild(newWind);
-        //   newCard.appendChild(newHum);
-        //   futureEl.appendChild(newCard);
-        // }
-      }
-    
+      }   
       )
-
 }
 
+// when the user clicks submit
 function submit(event) {
   event.preventDefault();
   todaysWeather();
