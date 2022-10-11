@@ -7,19 +7,39 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
 </head>
+
 <body>
+    <!-- header  -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Weather Dashboard</h1>
         </div>
     </div>
     
+    <!-- city search area -->
     <nav class="navbar navbar-light bg-light col-3">
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search for a city" aria-label="Search" id="city-input">
           <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
         </form>
+        <div id="past-searches">
+
+        </div>
     </nav>
+
+    <main class="col-9">
+        <div id="today-weather">
+
+        </div>
+
+        <div id="future-weather">
+            <div id="fut-one"></div>
+            <div id="fut-two"></div>
+            <div id="fut-three"></div>
+            <div id="fut-four"></div>
+            <div id="fut-five"></div>
+        </div>
+    </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
