@@ -16,28 +16,35 @@
         </div>
     </div>
     
+    <main class="container-fluid">
+        <div class="row">
     <!-- city search area -->
-    <nav class="navbar navbar-light bg-light col-3">
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search for a city" aria-label="Search" id="city-input">
-          <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
-        </form>
-        <div id="past-searches">
+            <nav class="navbar navbar-light bg-light col-3">
+                <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search for a city" aria-label="Search" id="city-input">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+                </form>
+                <div id="past-searches">
 
-        </div>
-    </nav>
+                </div>
+            </nav>
 
-    <main class="col-9">
-        <div id="today-weather">
+            <section class="col-9">
+                <div id="today-weather">
+                    <h3 id="current-city-weather"></h3>
+                    <p id="current-temp"></p>
+                    <p id="current-wind"></p>
+                    <p id="current-hum"></p>
+                </div>
 
-        </div>
-
-        <div id="future-weather">
-            <div id="fut-one"></div>
-            <div id="fut-two"></div>
-            <div id="fut-three"></div>
-            <div id="fut-four"></div>
-            <div id="fut-five"></div>
+                <div id="future-weather">
+                    <div id="fut-one"></div>
+                    <div id="fut-two"></div>
+                    <div id="fut-three"></div>
+                    <div id="fut-four"></div>
+                    <div id="fut-five"></div>
+                </div>
+            </section>
         </div>
     </main>
 
