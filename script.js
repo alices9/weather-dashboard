@@ -1,7 +1,7 @@
 var searchEl = document.getElementById("search-btn");
 var cityEl = document.getElementById("city-input");
-var todaysWeatherEl = document.getElementById("current-city-weather");
-var currentTempEl = document.getElementById("current-temperature");
+var todaysWeatherEl = document.getElementById("current-city-name");
+var currentTempEl = document.getElementById("current-temp");
 var currentWindEl = document.getElementById("current-wind");
 var currentHumEl = document.getElementById("current-hum");
 
@@ -19,7 +19,10 @@ function todaysWeather (event) {
       })
       .then(function (data) {
         console.log(data);
-        currentTempEl.innerHTML = data.main.temp;
+        todaysWeatherEl.innerHTML = cityEl.value.toUpperCase() + " | " + moment().format("MMM Do, YYYY");
+        currentTempEl.innerHTML = "Temp: " + data.main.temp;
+        currentWindEl.innerHTML = "Wind: " + data.wind.speed;
+        currentHumEl.innerHTML = "Humidity: " + data.main.humidity;
     }
       )  
 }
