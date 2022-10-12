@@ -44,7 +44,9 @@ function forecast() {
       .then(function (data2) {
         forecastHeadingEl.innerHTML = "Five day forecast:"
 
-        // iterate through the data 
+        // clears previous info
+        futureEl.innerHTML = "";
+        // iterate through the data to get wanted info
         for (var i=6; i < data2.list.length; i += 8) {
           var newCard = document.createElement("div");
           newCard.setAttribute("class", "card col-2");
