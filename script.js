@@ -14,14 +14,14 @@ var APIKey = "43dce1cbede3db860e66e5fee0faaf41";
 
 // getting today's weather
 function todaysWeather () {
-    var weatherURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityEl.value + "&units=imperial" + "&appid=" + APIKey;
+    var weatherURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityEl.value + "&units=imperial" + "&appid=" + APIKey;
 
     fetch(weatherURL)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        var imgSrc = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
+        var imgSrc = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
         currentCityEl.innerHTML = cityEl.value.toUpperCase() + " | " + moment().format("MMM Do, YYYY");
         currentIconEl.setAttribute("src", imgSrc);
         currentTempEl.innerHTML = "Temp: " + data.main.temp + "°F";
@@ -34,7 +34,7 @@ function todaysWeather () {
 
 // getting the 5 day forecast
 function forecast() {
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityEl.value + "&units=imperial" + "&appid=" + APIKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityEl.value + "&units=imperial" + "&appid=" + APIKey;
 
     fetch(queryURL)
       .then(function (response) {
@@ -50,7 +50,7 @@ function forecast() {
           var newCard = document.createElement("div");
           newCard.setAttribute("class", "card col-2");
           var newImg = document.createElement("img");
-          var imgSrc = "http://openweathermap.org/img/wn/" + data2.list[i].weather[0].icon + "@2x.png"
+          var imgSrc = "https://openweathermap.org/img/wn/" + data2.list[i].weather[0].icon + "@2x.png"
           var newTemp = document.createElement("p");
           var newWind = document.createElement("p");
           var newHum = document.createElement("p");
