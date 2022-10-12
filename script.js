@@ -21,7 +21,6 @@ function todaysWeather () {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
         var imgSrc = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
         currentCityEl.innerHTML = cityEl.value.toUpperCase() + " | " + moment().format("MMM Do, YYYY");
         currentIconEl.setAttribute("src", imgSrc);
@@ -91,20 +90,33 @@ function forecast() {
       }   
       )
 }
+
+
 // adds button
 function searchHistory() {
   var histButton = document.createElement("button");
   histButton.innerHTML = cityEl.value;
   histButton.setAttribute("class", "btn btn-outline-success w-100");
   historyEl.appendChild(histButton);
+  // histButton.addEventListener("click", histClick)
+
+  // function histClick() {
+  //   cityEl = histButton.innerText;
+  //   todaysWeather();
+  //   forecast();
+  // }
 }
+
 
 // when the user clicks submit
 function submit(event) {
   event.preventDefault();
+  if (cityEl.value === ""){
+    return;
+  }
   todaysWeather();
   forecast();
   searchHistory();
 }
 
-searchEl.addEventListener('click', submit);
+searchEl.addEventListener("click", submit);
